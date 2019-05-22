@@ -55,33 +55,129 @@
         <li class="nav-item">
             <a aria-controls="collapseTwo" aria-expanded="true" class="nav-link collapsed" data-target="#collapseTwo"
                data-toggle="collapse" href="#">
-                <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
+                <i class="fa fa-tasks" aria-hidden="true"></i>
+                <span>Admin</span>
             </a>
             <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordionSidebar" id="collapseTwo">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
+                    <h6 class="collapse-header"> DETAIL :</h6>
+                    <a class="collapse-item" href="buttons.html">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span>Users</span>
+                    </a>
+                    <a class="collapse-item" href="buttons.html">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span>Roles</span>
+                    </a>
+                    <!--<a class="collapse-item" href="cards.html">Cards</a>-->
                 </div>
             </div>
         </li>
 
-        <!-- Nav Item - Utilities Collapse Menu -->
+
         <li class="nav-item">
             <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
                data-target="#collapseUtilities" data-toggle="collapse" href="#">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
+                <span>Product Manager</span>
             </a>
             <div aria-labelledby="headingUtilities" class="collapse" data-parent="#accordionSidebar"
                  id="collapseUtilities">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                    <h6 class="collapse-header">Product detail:</h6>
+                     <a class="collapse-item" th:href="@{/admin/categories}">
+                        <i class="fa fa-folder-open" aria-hidden="true"></i>
+                        <span>Categories</span>
+                    </a>
+                    <a class="collapse-item" th:href="@{/admin/products}">
+                        <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                        <span>All product</span>
+                    </a>
+                    <a class="collapse-item" th:href="@{/admin/suppliers}">
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                        <span>Suppliers</span>
+                    </a>
+                    <a class="collapse-item" href="#">
+                    <i class="fa fa-university" aria-hidden="true"></i>
+                    <span>Brands</span>
+                    </a>
+                    <a class="collapse-item" href="#">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                        <span>Import product</span>
+                    </a>
+                    <a class="collapse-item" href="#">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        <span>Attributes group</span>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+        <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
+        data-target="#collapseUtilities1" data-toggle="collapse" href="#">
+            <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+        <span>Order Manager</span>
+        </a>
+        <div aria-labelledby="headingOrder" class="collapse" data-parent="#accordionSidebar"
+        id="collapseUtilities1">
+        <div class="bg-white py-2 collapse-inner rounded">
+        <h6 class="collapse-header">Detail : </h6>
+        <a class="collapse-item" th:href="@{/admin/orders}">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <span>Order Manager</span>
+        </a>
+            <a class="collapse-item" th:href="@{/admin/orderDetails}">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span>Order Detail</span>
+            </a>
+        <a class="collapse-item" href="#">
+            <i class="fa fa-asterisk" aria-hidden="true"></i>
+            <span>Order Status</span>
+        </a>
+        <a class="collapse-item" href="#">
+            <i class="fa fa-recycle" aria-hidden="true"></i>
+            <span>Payment Status</span>
+        </a>
+        <a class="collapse-item" th:href="@{/admin/shippers}">
+            <i class="fa fa-ambulance" aria-hidden="true"></i>
+            <span>Shipping status</span>
+        </a>
+        </div>
+        </div>
+        </li>
+        <li class="nav-item">
+            <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
+               data-target="#collapseUtilities2" data-toggle="collapse" href="#">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <span>Customer Manager</span>
+            </a>
+            <div aria-labelledby="headingCustomer" class="collapse" data-parent="#accordionSidebar"
+                 id="collapseUtilities2">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/admin/customers}">
+                        <i class="fa fa-user-md" aria-hidden="true"></i>
+                        <span>Customer Manager</span>
+                    </a>
+                    <a class="collapse-item" href="utilities-border.html">
+                        <i class="fa fa-user-md" aria-hidden="true"></i>
+                        <span>Subscribe manager</span>
+                    </a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
+               data-target="#collapseUtilities3" data-toggle="collapse" href="#">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <span>Employee Manager</span>
+            </a>
+            <div aria-labelledby="headingCustomer" class="collapse" data-parent="#accordionSidebar"
+                 id="collapseUtilities3">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/admin/employees}">
+                        <i class="fa fa-user-md" aria-hidden="true"></i>
+                        <span>Employee Manager</span>
+                    </a>
                 </div>
             </div>
         </li>

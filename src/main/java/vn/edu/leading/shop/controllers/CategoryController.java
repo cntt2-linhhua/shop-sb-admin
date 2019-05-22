@@ -1,5 +1,6 @@
 package vn.edu.leading.shop.controllers;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -22,51 +23,32 @@ public class CategoryController extends BaseController<CategoryModel> {
         super(baseRepository, baseService);
     }
 
-    @GetMapping("/categories")
-    public String list(Model model) {
+    @GetMapping("/admin/categories")
+    public String category(Model model) {
         model.addAttribute("categories", baseService.findAll());
-        return "categories/list";
+        return "admin/pages/categories";
     }
 
-    @GetMapping("categories/search")
-    public String search(@RequestParam("term") String term, Model model) {
-        if (StringUtils.isEmpty(term)) {
-            return "redirect:/categories";
-        }
-        model.addAttribute("categories", baseService.search("categoryName", term));
-        return "categories/list";
-    }
 
-    @GetMapping("/categories/add")
-    public String add(Model model) {
-        model.addAttribute("categoryModel", new CategoryModel());
-        return "categories/form";
-    }
-
-    @GetMapping("/categories/{id}/edit")
-    public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("categoryModel", baseService.findById(id));
-        return "categories/form";
-    }
-
-    @PostMapping("/categories/save")
-    public String save(@Valid CategoryModel category, BindingResult result, RedirectAttributes redirect) {
-        if (result.hasErrors()) {
-            return "categories/form";
-        }
+    @PostMapping("admin/categories")
+    public String save(@Valid CategoryModel category, Model model) {
         baseService.save(category);
-        redirect.addFlashAttribute("successMessage", "Saved category successfully!");
-        return "redirect:/categories";
+        model.addAttribute("categories", baseService.findAll());
+        return "admin/pages/categories";
     }
 
-    @GetMapping("/categories/{id}/delete")
-    public String delete(@PathVariable Long id, RedirectAttributes redirect) {
+
+    @GetMapping("/admin/categories/{id}/delete")
+    @PreAuthorize("hasRole('USER')")
+    public String delete(@PathVariable Long id, RedirectAttributes redirect, Model model) {
         if (baseService.delete(id)) {
             redirect.addFlashAttribute("successMessage", "Deleted category successfully!");
-            return "redirect:/categories";
+            model.addAttribute("categories", baseService.findAll());
+            return "admin/pages/categories";
         } else {
             redirect.addFlashAttribute("successMessage", "Not found!!!");
-            return "redirect:/categories";
+            model.addAttribute("categories", baseService.findAll());
+            return "admin/pages/categories";
         }
     }
 }

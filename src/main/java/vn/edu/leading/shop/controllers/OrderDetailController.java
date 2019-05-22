@@ -8,55 +8,65 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.edu.leading.shop.models.OrderDetailModel;
+import vn.edu.leading.shop.services.CustomerService;
 import vn.edu.leading.shop.services.OrderDetailService;
+import vn.edu.leading.shop.services.OrderService;
+import vn.edu.leading.shop.services.ProductService;
 
+import javax.jws.WebParam;
 import javax.validation.Valid;
 
 @Controller
 public class OrderDetailController {
 
     private final OrderDetailService orderDetailService;
+    private final OrderService orderService;
+    private final ProductService productService;
 
-    public OrderDetailController(OrderDetailService orderDetailService) {
+    public OrderDetailController(OrderDetailService orderDetailService, OrderService orderService, CustomerService customerService, ProductService productService) {
         this.orderDetailService = orderDetailService;
+        this.orderService = orderService;
+        this.productService = productService;
     }
 
-    @GetMapping("/orderDetails")
-    public String list(Model model) {
+    @GetMapping("/admin/orderDetails")
+    public String orderDetail(Model model) {
         model.addAttribute("orderDetails", orderDetailService.findAll());
-        return "orderDetails/list";
+        model.addAttribute("products", productService.findAll());
+        model.addAttribute("orders", orderService.findAll());
+        return "admin/pages/orderDetails";
     }
 
-    @GetMapping("/orderDetails/add")
-    public String add(Model model) {
-        model.addAttribute("orderDetailModel", new OrderDetailModel());
-        return "orderDetails/form";
-    }
-
-    @GetMapping("/orderDetails/{id}/edit")
-    public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("orderDetailModel", orderDetailService.findById(id));
-        return "orderDetails/form";
-    }
-
-    @PostMapping("/orderDetails/save")
-    public String save(@Valid OrderDetailModel orderDetail, BindingResult result, RedirectAttributes redirect) {
+    @PostMapping("/admin/orderDetails")
+    public String save(@Valid OrderDetailModel orderDetail, BindingResult result, RedirectAttributes redirect, Model model) {
         if (result.hasErrors()) {
-            return "orderDetails/form";
+            model.addAttribute("orderDetailModel", orderDetailService.findAll());
+            model.addAttribute("OrderModel", orderService.findAll());
+            model.addAttribute("ProductModel", productService.findAll());
+            return "admin/pages/orderDetails/";
         }
         orderDetailService.save(orderDetail);
+        model.addAttribute("orderDetailModel", orderDetailService.findAll());
+        model.addAttribute("OrderModel", orderService.findAll());
+        model.addAttribute("ProductModel", productService.findAll());
         redirect.addFlashAttribute("successMessage", "Saved orderDetails successfully!");
-        return "redirect:/orderDetails";
+        return "admin/pages/orderDetails";
     }
 
-    @GetMapping("/orderDetails/{id}/delete")
-    public String delete(@PathVariable Long id, RedirectAttributes redirect) {
+    @GetMapping("/admin/orderDetails/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes redirect, Model model) {
         if (orderDetailService.delete(id)) {
+            model.addAttribute("orderDetailModel", orderDetailService.findAll());
+            model.addAttribute("OrderModel", orderService.findAll());
+            model.addAttribute("ProductModel", productService.findAll());
             redirect.addFlashAttribute("successMessage", "Deleted orderDetails successfully!");
-            return "redirect:/orderDetails";
+            return "admin/pages/orderDetails";
         } else {
             redirect.addFlashAttribute("successMessage", "Not found!!!");
-            return "redirect:/orderDetails";
+            model.addAttribute("orderDetailModel", orderDetailService.findAll());
+            model.addAttribute("OrderModel", orderService.findAll());
+            model.addAttribute("ProductModel", productService.findAll());
+            return "admin/pages/orderDetails";
         }
     }
 }
