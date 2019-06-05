@@ -40,13 +40,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers("/api/**").anonymous()
                 .antMatchers("/admin/**").permitAll()
+                .antMatchers("/**").permitAll()
+
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .defaultSuccessUrl("/")
+//                .defaultSuccessUrl("/")
                 .failureUrl("/login?error")//
                 .permitAll()
                 .and()

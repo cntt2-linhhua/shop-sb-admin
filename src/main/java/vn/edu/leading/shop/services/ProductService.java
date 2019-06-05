@@ -10,6 +10,8 @@ public interface ProductService {
 
     List<ProductModel> findAll();
 
+    List<ProductModel> findAllByCategoryModel(Long id);
+
     List<ProductModel> search(String term);
 
     Optional<ProductModel> findById(Long id);
