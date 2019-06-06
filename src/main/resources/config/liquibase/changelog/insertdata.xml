@@ -1,0 +1,47 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Admin (generated)" id="1123213123-1">
+        <!--<loadData encoding="UTF-8"-->
+                  <!--file="config/liquibase/shop_shop_categories.csv"-->
+                  <!--separator=";"-->
+                  <!--tableName="shop_categories"/>-->
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/shop_shop_customers.csv"
+                  separator=";"
+                  tableName="shop_customers"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/shop_shop_employees.csv"
+                  separator=";"
+                  tableName="shop_employees"/>
+        <!--<loadData encoding="UTF-8"-->
+                  <!--file="config/liquibase/shop_shop_order_details.csv"-->
+                  <!--separator=";"-->
+                  <!--tableName="shop_order_details"/>-->
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/shop_shop_orders.csv"
+                  separator=";"
+                  tableName="shop_orders"/>
+        <!--<loadData encoding="UTF-8"-->
+                  <!--file="config/liquibase/shop_shop_products.csv"-->
+                  <!--separator=";"-->
+                  <!--tableName="shop_products"/>-->
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/shop_shop_roles.csv"
+                  separator=";"
+                  tableName="shop_roles"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/shop_shop_shippers.csv"
+                  separator=";"
+                  tableName="shop_shippers"/>
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/shop_shop_suppliers.csv"
+                  separator=";"
+                  tableName="shop_suppliers"/>
+        <!--<loadData encoding="UTF-8"-->
+                  <!--file="config/liquibase/shop_shop_user_role.csv"-->
+                  <!--separator=";"-->
+                  <!--tableName="shop_user_role"/>-->
+    </changeSet>
+</databaseChangeLog>
