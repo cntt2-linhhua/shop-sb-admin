@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en"
-	  xmlns="http://www.w3.org/1999/xhtml"
-	  xmlns:th="http://www.thymeleaf.org">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Aroma Shop - Product Details</title>
-	<link rel="icon" th:href="@{/img/Fevicon.png}" type="image/png">
-  <link rel="stylesheet" th:href="@{/vendors/bootstrap/bootstrap.min.css}">
-  <link rel="stylesheet" th:href="@{/vendors/fontawesome/css/all.min.css}">
-	<link rel="stylesheet" th:href="@{/vendors/themify-icons/themify-icons.css}">
-	<link rel="stylesheet" th:href="@{/vendors/linericon/style.css}">
-  <link rel="stylesheet" th:href="@{/vendors/nice-select/nice-select.css}">
-  <link rel="stylesheet" th:href="@{/vendors/owl-carousel/owl.theme.default.min.css}">
-  <link rel="stylesheet" th:href="@{/vendors/owl-carousel/owl.carousel.min.css}">
+  <title>Aroma Shop - Cart</title>
+	<link rel="icon" href="img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendors/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="vendors/themify-icons/themify-icons.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+  <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="vendors/nouislider/nouislider.min.css">
 
-  <link rel="stylesheet" th:href="@{/css/style.css}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 <body>
-	<!--================ Start Header Menu Area =================-->
+  <!--================ Start Header Menu Area =================-->
 	<header class="header_area">
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand logo_h" th:href="@{index.html}"><img src="img/logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
@@ -39,36 +42,36 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Shop</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="category.html">Shop Category</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-product.html">Product Details</a></li>
-                  <li class="nav-item"><a class="nav-link" href="checkout.html">Product Checkout</a></li>
-                  <li class="nav-item"><a class="nav-link" href="confirmation.html">Confirmation</a></li>
-                  <li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Shop Category</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Product Details</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Product Checkout</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Confirmation</a></li>
+                  <!--<li class="nav-item"><a class="nav-link" href="cart.html">Shopping Cart</a></li>-->
                 </ul>
 							</li>
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Blog</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                  <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+                  <li class="nav-item"><a class="nav-link" href="s#">Blog Details</a></li>
                 </ul>
 							</li>
 							<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>									
-                  <li class="nav-item"><a class="nav-link" href="tracking-order.html">Tracking</a></li>
+                  <li class="nav-item"><a class="nav-link" th:href="@{/login}">Login</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Tracking</a></li>
                 </ul>
               </li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
             </ul>
 
             <ul class="nav-shop">
-              <li class="nav-item"><button><i class="fa fa-search" aria-hidden="true"></i></button></li>
-              <li class="nav-item"><button th:href="@{/cart}"><i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="nav-shop__circle">3</span></button> </li>
+              <li class="nav-item"><button><i class="fa fa-search"></i></button></li>
+              <li class="nav-item"><button><i class="fa fa-shopping-cart"></i><span class="nav-shop__circle"><a></a></span></button> </li>
               <li class="nav-item"><a class="button button-header" href="#">Buy Now</a></li>
             </ul>
           </div>
@@ -77,17 +80,17 @@
     </div>
   </header>
 	<!--================ End Header Menu Area =================-->
-	
+
 	<!-- ================ start banner area ================= -->	
-	<section class="blog-banner-area" id="blog">
+	<section class="blog-banner-area" id="category">
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>Shop Single</h1>
+					<h1>Shopping Cart</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Shop Single</li>
+              <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
             </ol>
           </nav>
 				</div>
@@ -95,57 +98,37 @@
     </div>
 	</section>
 	<!-- ================ end banner area ================= -->
+  
+  
+
+  <!--================Cart Area =================-->
+  <section class="cart_area">
+      <div class="container">
+          <div class="cart_inner">
+              <div class="table-responsive">
+                  <table class="table" id="table-products">
+                      <thead>
+                          <tr>
+                              <th scope="col">Product</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col">Total</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!--================End Cart Area =================-->
 
 
-  <!--================Single Product Area =================-->
-	<div class="product_image_area" th:object="${product}">
-		<div class="container">
-			<div class="row s_product_inner">
-				<div class="col-lg-6">
-					<!--<div class="owl-carousel owl-theme s_Product_carousel">-->
-						<!--<div class="single-prd-item">-->
-							<img class="img-fluid col-lg-12"  th:src="${product.get().urlimage}" alt="">
-						<!--</div>-->
-						<!-- <div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div>
-						<div class="single-prd-item">
-							<img class="img-fluid" src="img/category/s-p1.jpg" alt="">
-						</div> -->
-					<!--</div>-->
-				</div>
-				<div class="col-lg-5 offset-lg-1">
-					<div class="s_product_text">
-						<h3 th:text="${product.get().productName}"></h3>
-						<h2 th:text="'$'+${product.get().price}"></h2>
-						<ul class="list">
-							<li><a class="active" href="#"><span>Category</span> : Household</a></li>
-							<li><a href="#"><span>Availibility</span> : In Stock</a></li>
-						</ul>
-						<p th:text="${product.get().description}"></p>
-						<div class="product_count">
-              <label for="qty">Quantity:</label>
-              <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-							 class="increase items-count" type="button"><i class="ti-angle-left"></i></button>
-							<input type="text" name="qty" id="sst" size="2" maxlength="12" value="1" title="Quantity:" class="input-text qty">
-							<button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-               class="reduced items-count" type="button"><i class="fa fa-angle-right"></i></button>
-							<a class="button primary-btn" href="#">Add to Cart</a>               
-						</div>
-						<div class="card_area d-flex align-items-center">
-							<a class="icon_btn" href="#"><i class="fa fa-diamond" aria-hidden="true"></i></a>
-							<a class="icon_btn" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--================End Single Product Area =================-->
 
   <!--================ Start footer Area  =================-->	
 	<footer>
-		<div class="footer-area footer-only" style="margin-top: 50px">
+		<div class="footer-area footer-only">
 			<div class="container">
 				<div class="row section_gap">
 					<div class="col-lg-3 col-md-6 col-sm-6">
@@ -243,7 +226,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
   <script src="vendors/jquery.ajaxchimp.min.js"></script>
   <script src="vendors/mail-script.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/cart.js"></script>
-
+  <script th:src="@{js/cart-2.js}"></script>
 </body>
 </html>

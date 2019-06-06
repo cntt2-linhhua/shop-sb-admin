@@ -39,9 +39,9 @@ public class HomeController {
         return "home/singleProduct";
     }
 
-    @GetMapping("/add-cart")
-    public String addCart() {
-        return "home/detail";
+    @GetMapping("/cart")
+    public String cart() {
+        return "home/cart";
     }
 
 }

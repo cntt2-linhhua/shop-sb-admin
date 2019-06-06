@@ -18,7 +18,7 @@ $(".add-to-cart").click(function () {
     var name = button.attr("data-name"); // name của sản phẩm là thuộc tính data-name của button
     var price = button.attr("data-price"); // price của sản phẩm là thuộc tính data-price của button
     var quantity = 1; // Số lượng
-    var imageurl = button.attr("data-urlimage");
+    var image = button.attr("data-image");
 
 
     var item = {
@@ -26,7 +26,7 @@ $(".add-to-cart").click(function () {
         name: name,
         price: price,
         quantity: quantity,
-        imageurl: imageurl
+        image: image
     };
 
     var exists = false;
@@ -70,7 +70,7 @@ function displaycart() {
         $.each(cart, function (index, item) {
             var htmlString = "";
             htmlString += "<tr>";
-            htmlString += "<td> <img src='" + item.imageurl + "'></td>";
+            htmlString += "<td> <img src='" + item.image + "'></td>";
             htmlString += "<td>" + item.name + "</td>";
             htmlString += "<td style='text-align: left'>" + item.price + "</td>";
             htmlString += "<td style='text-align: left'>" + item.quantity + "</td>";
